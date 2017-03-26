@@ -31,7 +31,7 @@ public class MovieDownloader {
 		HttpURLConnection urlConnection = null;
 		BufferedReader reader = null;
 
-		String movies[] = null;
+		String[] movies = null;
 
 		try {
 
