@@ -13,36 +13,24 @@ public class SortRacer {
 
 	public static void main(String[] args) 
 	{
-		//create and start the Threads
-		Thread mergeThread = new Thread(new MergeRunner());
-		Thread quickThread = new Thread(new QuicKRunner());
-		mergeThread.start();
-		quickThread.start();
-	}
+		SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss.SSSS"); //for output
+		Integer[] nums;
 
-	public static class MergeRunner {
-		public void run() {
-			/** Merge Sort **/
-			SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss.SSSS"); //for output
-			Integer[] nums = shuffled((int)Math.pow(10,7), 498); //a list of shuffled 10 million numbers
+		
+		/** Merge Sort **/
+		nums = shuffled((int)Math.pow(10,7), 448); //a list of shuffled 10 million numbers
 
-			System.out.println("Starting merge sort at "+dateFormat.format(new Date()));
-			Sorting.mergeSort(nums);
-			System.out.println("Merge sort finished at "+dateFormat.format(new Date())+" !");
-		}
-	}
+		System.out.println("Starting merge sort at "+dateFormat.format(new Date()));
+		Sorting.mergeSort(nums);
+		System.out.println("Merge sort finished at "+dateFormat.format(new Date())+" !");
 
-	public static class QuickRunner {
-		public void run() {
-			/** Quick Sort **/
-			SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss.SSSS"); //for output
-			Integer[] nums = shuffled((int)Math.pow(10,7), 498); //a list of shuffled 10 million numbers
-			System.out.println("Starting quicksort at "+dateFormat.format(new Date()));
-			Sorting.quickSort(nums);
-			System.out.println("Quicksort finished at "+dateFormat.format(new Date())+" !");
-		}
+		
+		/** Quick Sort **/
+		nums = shuffled((int)Math.pow(10,7), 448); //a list of shuffled 10 million numbers
+		System.out.println("Starting quicksort at "+dateFormat.format(new Date()));
+		Sorting.quickSort(nums);
+		System.out.println("Quicksort finished at "+dateFormat.format(new Date())+" !");
 	}
-	
 	
 	
 	/**
