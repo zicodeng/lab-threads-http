@@ -93,7 +93,7 @@ public class MovieDownloader {
 		while(searching) {					
 			System.out.print("Enter a movie name to search for or type 'q' to quit: ");
 			String searchTerm = sc.nextLine().trim();
-			if(searchTerm.toLowerCase().startsWith("q")){
+			if(searchTerm.toLowerCase().equals("q")){
 				searching = false;
 			}
 			else {
