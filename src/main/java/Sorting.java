@@ -7,8 +7,8 @@ import java.util.Arrays;
  * @author Joel Ross
  */
 @SuppressWarnings({"unchecked","rawtypes"}) //So we can easily work with arrays of Comparables
-public class Sorting
-{
+public class Sorting {
+	
 	/**
 	 * Uses bubble sort to sort the provided list (in place)
 	 * @param list The list to sort
@@ -34,7 +34,7 @@ public class Sorting
 		while(!sorted);
 	}
 
-	
+
 	/**
 	 * Uses selection sort to sort the provided list (in place)
 	 * @param list The list to sort
@@ -58,7 +58,7 @@ public class Sorting
 		}
 	}
 
-	
+
 	/**
 	 * Uses insertion sort to sort the provided list (in place)
 	 * @param list The list to sort
@@ -87,7 +87,7 @@ public class Sorting
 	{
 		//int[] gaps = {701, 301, 132, 57, 23, 10, 4, 1};
 		int gap = list.length/2;
-				
+
 		while(gap > 0)
 		{
 			for(int i = gap; i < list.length; i++)
@@ -101,15 +101,15 @@ public class Sorting
 					hole = hole-gap;
 				}
 				list[hole] = inserted;
-			}			
+			}
 			if(gap != 2)
 				gap = (int)(gap/2.2);
 			else
 				gap = 1;
-		}	
+		}
 	}
 
-	
+
 	/**
 	 * Uses Merge sort to sort the provided list (NOT in place)
 	 * @param list The list to sort
@@ -170,7 +170,7 @@ public class Sorting
 			rightIndex++;
 			masterIndex++;
 		}
-	}	
+	}
 
 	/**
 	 * Uses heap sort to sort the provided list (in place)
@@ -194,7 +194,7 @@ public class Sorting
 				parent = (child-1)/2;
 			}
 		}
-		
+
 		for(int last=list.length-1; last > 0; last--)
 		{
 			Comparable tmp = list[0];
@@ -216,7 +216,7 @@ public class Sorting
 					if(rightChild < last && list[rightChild].compareTo(list[leftChild]) > 0) //has right, and he's bigger?
 						maxChild = rightChild;
 
-					//System.out.println("Heap Sort comparison");	 				
+					//System.out.println("Heap Sort comparison");
 					if(list[current].compareTo(list[maxChild]) < 0)
 					{
 						//swap
@@ -234,7 +234,7 @@ public class Sorting
 			}
 		}
 	}
-	
+
 	/**
 	 * Uses quicksort to sort the provided list (in place)
 	 * @param list The list to sort
@@ -243,7 +243,7 @@ public class Sorting
 	{
 		quickSort(list,0,list.length-1);
 	}
-	
+
 	/**
 	 * Quicksorts a piece of a list
 	 * @param list the list the sort
@@ -280,28 +280,28 @@ public class Sorting
 				up++; //walk past
 			}
 			//up is pointing at someone on wrong side
-			
+
 			while(pivot.compareTo(list[down]) < 0){ //if on correct side
 				//System.out.println("Quicksort comparison");
 				down--; //walk past
 			}
 			//down is pointing at someoneon wrong side
-			
-			//at this point, up and down are either at the end of the list or found people to move					
-			
+
+			//at this point, up and down are either at the end of the list or found people to move
+
 			if(up < down) //if there are items to move
 			{
 				Comparable tmp = list[up]; //swap the two out of place elements
 				list[up] = list[down];
 				list[down] = tmp;
 			}
-			
+
 		} while(up < down);
-		
+
 		Comparable tmp = list[first]; //swap pivot into position
 		list[first] = list[down];
 		list[down] = tmp;
-		
+
 		return down; //return pivot's new position
 	}
 }
